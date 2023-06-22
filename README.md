@@ -25,9 +25,14 @@ Below you can see where the OLED display, the light sensor with resistor and the
 
 After finishing the electronics, it's time to take care of the case where you are planning to place the assembled board. At this moment you have two options:
 1. Cut the case yourself using [the lasercut files](https://github.com/julisa99/Lovebox/tree/master/lasercut_files) containing the cutting plan.
-2. Buy some wooden ring box and small wooden hearts [*].\
+2. Buy some wooden ring box and small wooden hearts [*].
 
-Since I don't have proper tools for laser cutting I went with searching and buying the wooden box that fitted my assembled board. Then I've made a hole at the back of the box for the microUSB port and at the front to be able to connect servo with the wooden heart. Because my box is much
+Since I don't have proper tools for laser cutting I went with searching and buying the wooden box that fitted my assembled board. Then I've made a hole at the back of the box for the microUSB port and at the front to be able to connect servo with the wooden heart. Because walls of my box is much wider then the length of the servo motor's shaft, I used a wall plug to be able to anchor it with the heart (*you could see how it looks in the image on the right*)
+
+<p float="left">
+  <img src="https://github.com/indigo-sadland/lovebox-DIY/assets/37074372/6f3a9809-b765-43d2-9993-d4e07d4ba2ef" width="30%" />
+  <img src="https://github.com/indigo-sadland/lovebox-DIY/assets/37074372/37d857d3-db0c-47b2-aa39-a3a4b30ebee9" width="42.5%"" /> 
+</p>
 
 ## How it works
 
@@ -36,4 +41,8 @@ For programming I used the [Arduino IDE](https://www.arduino.cc/en/Main/Software
 Then you can open the ["Lovebox.ino"](https://github.com/julisa99/Lovebox/blob/master/Lovebox.ino) and upload it to the board, just connect it to your computer with a micro usb cable. You should first enter your WLAN, password and the path to your gist file (without the part "https://gist.github.com" and add "/raw/yourFilename" behind) in the ["credentials.h"](https://github.com/julisa99/Lovebox/blob/master/credentials.h). The gist file is a text document, which you create online as "private" and then almost always leave your message there, which the microcontroller can then retrieve.
 
 The microcontroller will then always call your text document on gist.github and see if the first number in the first line is a different one. This serves as an identifier to determine if a new message is retrievable.
-If this is different from the previous one, then the algorithm looks into the second line, if it contains a "t", then the microcontroller expects a text and shows the message on the display. If there is another character, e.g. a "b", then an image is expected. For the picture I use the website: https://www.dcode.fr/binary-image. There you can upload your black and white image and set the target width to 128 pixels. The image will then be converted to "0" and "1" only, so each black pixel becomes a 0 and each white pixel a 1. You can then simply enter this string in the third line of your text document on gist.github. So your text document could look like this:
+If this is different from the previous one, then the algorithm looks into the second line, if it contains a "t", then the microcontroller expects a text and shows the message on the display. If there is another character, e.g. a "b", then an image is expected. For the picture I use the website: https://www.dcode.fr/binary-image. There you can upload your black and white image and set the target width to 128 pixels. The image will then be converted to "0" and "1" only, so each black pixel becomes a 0 and each white pixel a 1. You can then simply enter this string in the third line of your text document on gist.github.
+
+## Known Issues
+The original source code didn't work for me so I had to modify it and now...:\
+- [ ] Binary images are not displaying 
