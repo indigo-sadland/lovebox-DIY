@@ -44,5 +44,5 @@ The microcontroller will then always call your text document on gist.github and 
 If this is different from the previous one, then the algorithm looks into the second line, if it contains a "t", then the microcontroller expects a text and shows the message on the display. If there is another character, e.g. a "b", then an image is expected. For the picture I use the website: https://www.dcode.fr/binary-image. There you can upload your black and white image and set the target width to 128 pixels. The image will then be converted to "0" and "1" only, so each black pixel becomes a 0 and each white pixel a 1. You can then simply enter this string in the third line of your text document on gist.github.
 
 ## Known Issues
-The original source code didn't work for me so I had to modify it and now...:\
+The original source code didn't work for me so I had to modify it and now:
 - [ ] Binary images are not displaying 
